@@ -12,10 +12,10 @@
     <body>
         <nav>
             <ul id = "addPizzaContainer">
-                <li>
-                    <a class = "button" href="#" >Brandon's Pizza Palace!</a>
+                <li class = "headerNav">
+                    <a class = "button" href="index.php" >Brandon's Pizza Palace!</a>
                 </li>
-                <li >
+                <li class = "headerNav">
                     <a class = "button" href="form.php">Create your own pizza</a>
                 </li>
             </ul>

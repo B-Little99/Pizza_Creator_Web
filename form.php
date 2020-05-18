@@ -1,5 +1,7 @@
 <?php
 
+    include('database_connection.php');
+
     $errors = array("email" => "", "name" => "", "ingredient" => "");
 
     $name = '';
@@ -36,6 +38,19 @@
 
         } else {
             header('Location: index.php');
+
+            $name = mysqli_real_escape_string($connection, $_POST['name']);
+            $email = mysqli_real_escape_string($connection, $_POST['email']);
+            $ingredients = mysqli_real_escape_string($connection, $_POST['ingredient']);
+
+            $sql = "INSERT INTO Pizzas(title, email, ingredients) VALUES ('$name', '$email', '$ingredients')";
+
+            if(mysqli_query($connection, $sql)){
+                // success adding data to Pizzas table in DB.
+            } else {
+                echo "Error adding data to Pizzas table in database.";
+            }
+
         }
     }
 

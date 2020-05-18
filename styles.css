@@ -14,40 +14,41 @@ nav {
     height: 100px;
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: #7971e6;
     justify-content: center;
     align-items: center;
-
 }
 
-/* UL */
+/* UL in nav*/
 #addPizzaContainer {
+    width: 100%;
     margin: 0;
-    text-align: right;
+    text-align: center;
 }
 
-li {
+.headerNav {
     display: inline-block;
     list-style-type: none;
-    margin-left: 100px;
 }
 
-li a {
+.headerNav a {
     display: block;
-    color: black;
+    color: white;
     font-weight: bold;
     font-size: 25px;
     text-align: center;
-    padding: 30px;
+    padding: 5px;
+    padding-left: 50px;
     text-decoration: none;
 }
 
-li a:hover{
+.headerNav a:hover{
     text-decoration: underline;
 }
 
+/* CSS for footer.php */
 footer {
-    position: fixed;
+    position: static;
     bottom: 0;
     width: 100%;
 }
@@ -57,8 +58,14 @@ footer p {
     text-align: center; 
 }
 
+/* Css for form.php */
 #wrapper {
     text-align: center;
+    height: 76vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .formWrapper{
@@ -80,7 +87,6 @@ textarea {
     border-top: none;
     border-left: none;
     border-right: none;
-
 }
 
 form {
@@ -105,13 +111,21 @@ input {
     border-right: none;
 }
 
+input:focus {
+    border: 3px solid #7971e6;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+
 .button {
     width: 100%;
-    height: 40px;
+    height: 52px;
     padding: 10px;
     padding-bottom: 20px;
-    color: black;
-    background-color: rgb(255, 255, 255);
+    color: white;
+    background-color: #7971e6;
     border: none;
     font-size: 25px;
     outline: none;
@@ -124,44 +138,102 @@ input {
     text-decoration: underline;
 }
 
+.pizzaContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .pizzaWrapper {
     text-align: center;
     margin-top: 50px;
+    margin: auto;
+    height: auto;
+}
+
+.row {
+    width: 90%;
     height: auto;
 }
 
 .column {
     float:left;
-    margin: 25px;
+    margin: 12px;
     width: 30%;
-    height: 300px auto;
     background-color: white;
     padding: 30px 20px;
     border-radius: 4px;
-    margin-top:0;
+    text-align: center;
+    min-height: 300px;
+    max-height: 100%;
+}
 
+.columnWrap{
+    display: inline-block;
 }
 
 h3 {
-    margin-bottom: 30px !important;
-    
+    margin: 30px 0 30px !important;
+    font-size: 30px !important;
 }
 
 h3, h4 {
     font-size: 24px;
     margin: 0;
     margin-bottom: 15px;
+    color: #564aff;
 }
 
 .ingredients {
+    list-style-type: none;
+    padding: 0;
     font-size: 20px;
     margin-bottom: 15px;
     color: rgb(107, 107, 107);
 
 }
 
-.moreInformation {
+.moreInformation a{
     margin-top: 10px;
     bottom: 0px;
-    
+    text-decoration: none;
+    color: #564aff;
+}
+
+.moreInformation a:hover {
+    text-decoration: underline;
+}
+
+
+/* CSS for details page */
+
+.detailsContainer{
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detailsInfoContainer{
+    margin: 20px;
+    padding: 25px;
+    width: 380px;
+    padding-bottom: 0;
+    background-color: white;
+}
+
+.detailsInfoContainer .button{
+    width: 320px;
+}
+
+#detailedIngredients{
+    overflow-wrap: break-word;
+}
+
+p {
+    font-size: 20px;
 }

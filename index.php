@@ -1,11 +1,6 @@
 <?php
 
-// Storing the connection to the database in the $connection variable.
-$connection = mysqli_connect('localhost', 'Brand', 'myTEST123469', 'Brandons_pizzas');
-
-if(!$connection){
-    echo 'There was an error connecting to the database';
-}
+include('database_connection.php');
 
 // query for all pizzas
 
@@ -23,6 +18,8 @@ mysqli_free_result($result);
 // closing the connection
 mysqli_close($connection);
 
+
+
 ?>
 
 
@@ -35,32 +32,33 @@ mysqli_close($connection);
         <div class="pizzaContainer">
             <div class="row">
 
-                <?php foreach($pizzas as $pizza){ ?>
+                <?php foreach($pizzas as $pizza): ?>
 
                     <div class="column">
-                        <h4> <?php echo htmlspecialchars($pizza['title']); ?> </h6>
-                        <div class="ingredients"> <?php echo htmlspecialchars($pizza['ingredients']); ?> </div>
-                        <div class="moreInformation">
-                            <a href="#">More info</a>
+                        <div class="columnWrap">
+                            <h4> <?php echo htmlspecialchars($pizza['title']); ?> </h6>
+                            <div class="ingredients"> 
+                                <ul class="ingredients">  
+                                    <?php foreach(explode(',', $pizza['ingredients']) as $ingredient): ?>
+                                        <li>
+                                            <?php echo htmlspecialchars(ucwords($ingredient)) ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>  
+                            </div>
+                            <div class="moreInformation">
+                                <a href="details.php?id=<?php echo $pizza['id']?>">More info</a>
+                            </div>
                         </div>
                     </div>
 
-                <?php } ?>
+                <?php endforeach; ?>
 
             </div>
         </div>
     </div>
 
-
-
-
-
-
-
     <?php include('footer.php') ?>
-
-
-
 
 </html>
 
